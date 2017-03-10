@@ -12,8 +12,10 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class SeleniumExample {
     public static void main(String[] args) {
 
+        System.setProperty("webdriver.gecko.driver", "C:\\Windows\\System32\\geckodriver.exe");
+
         WebDriver driver = new FirefoxDriver();
-   //     WebDriver driver = new ChromeDriver();
+        //     WebDriver driver = new ChromeDriver();
 
         // And now use this to visit Google
         driver.get("http://www.google.com");
@@ -27,7 +29,7 @@ public class SeleniumExample {
 
         WebDriverWait wait = new WebDriverWait(driver, 10);
 
-        WebElement we = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id='tsf']/div[2]/div[3]/center/input[1]")));
+        WebElement we = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@value='Google 搜索']")));
         // Now submit the form. WebDriver will find the form for us from the element
         we.click();
 
